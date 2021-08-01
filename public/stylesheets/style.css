@@ -1,0 +1,34 @@
+.color1 {
+    background-color: rgba(217, 234, 211, 255);
+}
+  
+.color2 {
+    background-color: rgba(35, 16, 16, 255);
+}
+  
+.text-color1 {
+    color: rgba(217, 234, 211, 255);
+}
+  
+.text-color2 {
+    color: rgba(35, 16, 16, 255);
+}
+  
+.mybtn {
+    font-size: 24px;
+    font-weight: bold;
+    border: solid 2px rgba(35, 16, 16, 255);
+}
+  
+.login {
+    border: solid 2px rgba(35, 16, 16, 255);
+}
+  
+.post {
+    border: solid 4px rgba(35, 16, 16, 255);
+}
+  
+.inner-post {
+    border-bottom: solid 1px rgba(35, 16, 16, 255);
+}
+  
