@@ -1,44 +1,54 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const router = require('express').Router();
+const { Comment } = require('../../models');
 
-// Comment Model code
-class Comment extends Model {}
+router.get("/", (req, res) => {
+  Comment.findAll({
+    order: [["created_at", "DESC"]],
+    attributes: ["id", "comment_text", "user_id", "post_id", "created_at"],
+  })
+    .then((dbCommentData) => res.json(dbCommentData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-Comment.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    comment_text: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "post",
-        key: "id",
-      },
-    },
-  },
-  {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "comment",
+router.post("/", (req, res) => {
+
+  // run a check on the session
+  if (req.session) {
+    Comment.create({
+      comment_text: req.body.comment_text,
+      post_id: req.body.post_id,
+
+      // the id from the session
+      user_id: req.session.user_id,
+    })
+      .then((dbCommentData) => res.json(dbCommentData))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
   }
-);
+});
 
-module.exports = Comment;
+router.delete("/:id", (req, res) => {
+  Comment.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbCommentData) => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: "No comment with this ID exists" });
+        return;
+      }
+      res.json(dbCommentData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;

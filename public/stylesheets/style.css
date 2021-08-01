@@ -19,6 +19,10 @@
     font-weight: bold;
     border: solid 2px rgba(35, 16, 16, 255);
 }
+
+.mybtn:hover {
+    background-color: #3486eb;
+}
   
 .login {
     border: solid 2px rgba(35, 16, 16, 255);
@@ -30,5 +34,16 @@
   
 .inner-post {
     border-bottom: solid 1px rgba(35, 16, 16, 255);
+}
+
+a {
+    text-decoration: none;
+    color: #225ca3;
+    font-weight: bold;
+    transition: color .1s;
+}
+  
+a:hover {
+    color: #3486eb;
 }
   
