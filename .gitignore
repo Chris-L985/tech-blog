@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 # dotenv environment variables file
 .env
 .env.test
 
+=======
+>>>>>>> develop
 # Logs
 logs
 *.log
@@ -72,6 +75,13 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+<<<<<<< HEAD
+=======
+# dotenv environment variables file
+.env
+.env.test
+
+>>>>>>> develop
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
