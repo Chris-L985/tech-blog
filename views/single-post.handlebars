@@ -1,0 +1,22 @@
+
+<div class="m-4 color2 text-color1 p-2">
+  <h4>Comments:</h4>
+</div>
+{{> comments post }}
+
+{{#if loggedIn}}
+<form class="card m-4 comment-form">
+  <h4 class="color2 text-color1 p-2 m-0">Post a Comment</h4>
+
+  <div class="card-body text-color2 color1 login p-2">
+    <textarea class="w-100 mb-2" name="comment-body"></textarea>
+    <button class="bg-secondary text-color2 font-weight-bold w-100 mybtn" type="submit">Submit</button>
+
+  </div>
+</form>
+{{/if}}
+
+
+{{#if loggedIn}}
+<script src="/public/javascript/comment.js"></script>
+{{/if}}

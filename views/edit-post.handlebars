@@ -1,0 +1,25 @@
+<form class="card m-5 login-form edit-post-form">
+  <h4 class="color2 text-color1 p-2 m-0">Edit Post</h4>
+
+  <div class="card-body text-color2 color1 login p-2">
+
+    <h5 class="">Post Title</h5>
+    
+    <input class="w-100" type="text" name="post-title" value="{{post.title}}"/>
+    <h5>Post Content</h5>
+    <input class="w-100 mb-2" type="text" name="post-content" value="{{post.content}}"/>
+    <button class="bg-secondary tcolor2 font-weight-bold" type="submit">Save Changes</button>
+    <button class="bg-secondary tcolor2 font-weight-bold delete-post-btn" type="button">Delete Post</button>
+
+    Posted on {{format_date post.created_at}}
+
+  </div>
+</form>
+
+<div class="m-4 text-color2 color2 p-2">
+  <h4>Comments:</h4>
+</div>
+{{> comments post}}
+
+<script src="/public/javascript/edit-post.js"></script>
+<script src="/public/javascript/delete-post.js"></script>

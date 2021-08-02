@@ -1,0 +1,16 @@
+<div class="card mt-5 ml-5 mr-5 mb-0 post">
+  <div class="card-body color1 text-color2 post">
+    <div class="card-title">
+      <h3 class="inner-post"><span>{{title}}</span></h3>
+    </div>
+
+    <div>
+      <p><span>{{content}}</span></p>
+    </div>
+  
+    by {{user.username}} on
+    {{format_date created_at}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</div>

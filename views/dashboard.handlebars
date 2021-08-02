@@ -1,0 +1,30 @@
+<form class="card m-4 new post-form">
+    <h4 class="m-0 color2 text-color1 p-2">Create New Posts</h4>
+
+    <div class="card-body text-color2 login color1 p-2">
+        <h5 class="">Title</h5>
+
+        <input class="w-100" id="post-title" name="post-title" type="text" />
+        <h4>Content</h4>
+        <input class="mb-2 w-100" id="post-content" name="post-content" type="text" />
+
+        <button class="text-color2 font-weight-bold w-100 mybtn bg-secondary" type="submit">Submit Post</button>
+    </div>
+</form> 
+
+{{#if post.length}}
+<section>
+    <div class="text-color2 color2 p-2 m-5">
+        <h4>Posts:</h4>
+    </div>
+
+    {{#each post as |post|}}
+
+    <div class="ml-5">
+        <a href="/dashboard/edit/{{post.id}}" class="">Edit</a>
+    </div>
+    {{/each}}
+</section>
+{{/if}}
+
+<script src="/public/javascript/add-post.js"></script>
