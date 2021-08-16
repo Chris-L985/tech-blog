@@ -1,8 +1,8 @@
 // Required api packages
-const router = require('express').Router();
-const apiRoutes = require('./api');
-const homeRoutes = require('./home-routes');
-const dashboardRoutes = require('./dashboard-routes');
+const router = require("express").Router();
+const apiRoutes = require("./api");
+const homeRoutes = require("./home-routes");
+const dashboardRoutes = require("./dashboard-routes");
 
 // controller routes
 router.use("/api", apiRoutes);
