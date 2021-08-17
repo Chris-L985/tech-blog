@@ -15,7 +15,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // application cookies
 const sess = {
-    secret: "super secret",
+    secret: "Super secret",
     cookie: {
         expires: 60 * 1000,
     },
@@ -33,7 +33,7 @@ app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(routes);
 
